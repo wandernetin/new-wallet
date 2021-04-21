@@ -31,5 +31,19 @@ module.exports = {
         } else {
             res.status(404).end();
         }
+    },
+
+    async getExpensesCategory(req, res) {
+        const categories = await category.find({
+            "type": "EXPENSE"
+        });
+        return res.status(200).json(categories);
+    },
+
+    async getIncomeCategory(req, res) {
+        const categories = await category.find({
+            "type": "INCOME"
+        });
+        return res.status(200).json(categories);
     }
 }
