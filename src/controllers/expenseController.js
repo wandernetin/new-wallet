@@ -43,4 +43,15 @@ module.exports = {
       res.status(404).end();
     }
   },
+
+  async getCurrentMonthExpenses(req, res) {
+    const date = new Date();
+    const expenses = await Expense.find({ //query today up to tonight
+      date: {
+        $gte: new Date(date.getFullYear(), date.getMonth(), 1),
+        $lt: new Date(date.getFullYear(), date.getMonth() + 1, 0)
+      }
+    });
+    return res.json(expenses);
+  },
 };

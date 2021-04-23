@@ -13,11 +13,13 @@ routes.post("/category", CategoryController.store);
 routes.delete("/category", CategoryController.delete);
 routes.put("/category", CategoryController.edit);
 
+routes.get("/expense/current", ExpenseController.getCurrentMonthExpenses);
 routes.post("/expense", ExpenseController.store);
 routes.get("/expense", ExpenseController.index);
 routes.delete("/expense", ExpenseController.delete);
 routes.put("/expense", ExpenseController.edit);
 
+routes.get("/income/current", IncomeController.getCurrentMonthIncomes);
 routes.post("/income", IncomeController.store);
 routes.get("/income", IncomeController.index);
 routes.delete("/income", IncomeController.delete);
