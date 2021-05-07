@@ -7,7 +7,7 @@ const routes = require('./routes');
 
 const server = express();
 
-mongoose.connect('mongodb+srv://developer:developer@cluster0-ca8t3.mongodb.net/wallet?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB, {
     useNewUrlParser: true
 });
 
