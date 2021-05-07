@@ -45,13 +45,15 @@ module.exports = {
   },
 
   async getCurrentMonthIncomes(req, res) {
-    const date = new Date();
+    const dateFrom = new Date();
+    dateFrom.setMonth(dateFrom.getMonth() - 1)
+    const dateTo = new Date();
     const incomes = await Income.find({ //query today up to tonight
       date: {
-        $gte: new Date(date.getFullYear(), date.getMonth(), 1),
-        $lt: new Date(date.getFullYear(), date.getMonth() + 1, 0)
+        $gte: dateFrom,
+        $lt: dateTo
       }
-    });
+    }).sort({ date: 'asc' });
     return res.json(incomes);
   },
 };
