@@ -13,6 +13,7 @@ routes.post("/category", CategoryController.store);
 routes.delete("/category", CategoryController.delete);
 routes.put("/category", CategoryController.edit);
 
+routes.post("/expense/current/category", ExpenseController.getCurrentMonthExpensesByCategory);
 routes.get("/expense/current", ExpenseController.getCurrentMonthExpenses);
 routes.post("/expense", ExpenseController.store);
 routes.get("/expense", ExpenseController.index);

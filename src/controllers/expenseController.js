@@ -49,11 +49,27 @@ module.exports = {
     const dateFrom = new Date();
     dateFrom.setMonth(dateFrom.getMonth() - 1)
     const dateTo = new Date();
-    const expenses = await Expense.find({ //query today up to tonight
+    const expenses = await Expense.find({
       date: {
         $gte: dateFrom,
         $lt: dateTo
       }
+    }).sort({ date: 'asc' });
+    return res.json(expenses);
+  },
+
+   /* From same day last month to now */
+   async getCurrentMonthExpensesByCategory(req, res) {
+    var { category } = req.body;
+    const dateFrom = new Date();
+    dateFrom.setMonth(dateFrom.getMonth() - 1)
+    const dateTo = new Date();
+    const expenses = await Expense.find({ 
+      date: {
+        $gte: dateFrom,
+        $lt: dateTo
+      }, 
+      category: category, 
     }).sort({ date: 'asc' });
     return res.json(expenses);
   },
