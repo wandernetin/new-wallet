@@ -31,9 +31,9 @@ routes.delete("/income", verifyToken, IncomeController.delete);
 routes.put("/income", verifyToken, IncomeController.edit);
 
 routes.get("/user", verifyToken, UserController.index);
-routes.post("/user", UserController.store);
+routes.post("/user", verifyToken, UserController.store);
 routes.get("/user/:id", verifyToken, UserController.findUserByid);
-routes.delete("/user/:id", UserController.deleteUser);
+routes.delete("/user/:id", verifyToken, UserController.deleteUser);
 
 routes.post("/login", AuthController.login);
 routes.get("/logout", AuthController.logout);
