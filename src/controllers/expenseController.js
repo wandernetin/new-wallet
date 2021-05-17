@@ -36,7 +36,7 @@ module.exports = {
   },
 
   async delete(req, res) {
-    const success = await Expense.findByIdAndDelete(req.body.expense._id);
+    const success = await Expense.findByIdAndDelete(req.params.id);
     if (success) {
       res.status(204).end();
     } else {

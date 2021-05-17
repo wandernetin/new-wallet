@@ -21,13 +21,13 @@ routes.post("/expense/current/category", verifyToken, ExpenseController.getCurre
 routes.get("/expense/current", verifyToken, ExpenseController.getCurrentMonthExpenses);
 routes.post("/expense", verifyToken, ExpenseController.store);
 routes.get("/expense", verifyToken, ExpenseController.index);
-routes.delete("/expense", verifyToken, ExpenseController.delete);
+routes.delete("/expense/:id", verifyToken, ExpenseController.delete);
 routes.put("/expense", verifyToken, ExpenseController.edit);
 
 routes.get("/income/current", verifyToken, IncomeController.getCurrentMonthIncomes);
 routes.post("/income", verifyToken, IncomeController.store);
 routes.get("/income", verifyToken, IncomeController.index);
-routes.delete("/income", verifyToken, IncomeController.delete);
+routes.delete("/income/:id", verifyToken, IncomeController.delete);
 routes.put("/income", verifyToken, IncomeController.edit);
 
 routes.get("/user", verifyToken, UserController.index);
